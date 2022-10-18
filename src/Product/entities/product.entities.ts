@@ -1,5 +1,5 @@
 import { IsNotEmpty, isNotEmpty } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity({name: 'tb_product'})
 export class Product{
@@ -18,6 +18,9 @@ export class Product{
     @IsNotEmpty()
     @Column( 'decimal',{precision: 7, scale: 2, nullable: false})
     value: number
+
+    @UpdateDateColumn()
+    date: Date
 
 
 }
