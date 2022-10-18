@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Product } from './Product/entities/product.entities';
+import { ProductModule } from './Product/product.module';
 
 @Module({
   imports: [
@@ -12,14 +13,13 @@ import { Product } from './Product/entities/product.entities';
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'db_product',
+      database: 'db_gamestore',
       entities: [Product],
       synchronize: true
-
     }),
-    ProductTheme
+    ProductModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
