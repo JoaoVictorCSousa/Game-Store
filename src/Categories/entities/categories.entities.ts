@@ -10,7 +10,7 @@ export class Categories {
 
     @IsNotEmpty()
     @Column({length: 255, nullable: false})
-    Game_Gender: string;
+    Game_Genres: string;
 
     @OneToMany(() => Product, (product) => product.categories)
     product: Product[];

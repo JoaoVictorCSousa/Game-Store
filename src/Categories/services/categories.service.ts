@@ -33,9 +33,9 @@ export class CategoriesService {
         return categories;
     }
     
-    async findByDescription (Game_Gender: string): Promise<Categories[]> {
+    async findByDescription (Game_Genres: string): Promise<Categories[]> {
         return await this.categoriesRepository.find({
-            where: {Game_Gender: ILike(`%${Game_Gender}%`)},
+            where: {Game_Genres: ILike(`%${Game_Genres}%`)},
             relations: {
                 product: true
             }
