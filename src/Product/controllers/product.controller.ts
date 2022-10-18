@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPip
 import { Product } from "../entities/product.entities";
 import { ProductService } from "../services/product.service";
 
-@Controller("/controller")
+@Controller("/products")
 export class ProductController {
     constructor(private readonly productService: ProductService) {}
 
@@ -27,7 +27,7 @@ export class ProductController {
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
-  create(@Body() Product: Product): Promise <Product> {
+    create(@Body() Product: Product): Promise <Product> {
     return this.productService.create(Product);
 }
 

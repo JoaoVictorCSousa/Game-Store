@@ -1,9 +1,8 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
-import { create } from "domain";
 import { Categories } from "../entities/categories.entities";
 import { CategoriesService } from "../services/categories.service";
 
-@Controller("/controller")
+@Controller("/categories")
 export class CategoriesController {
     constructor(private readonly categoriesService: CategoriesService) {}
 
@@ -11,7 +10,6 @@ export class CategoriesController {
     @HttpCode(HttpStatus.OK)
     findAll(): Promise <Categories[]> {
         return this.categoriesService.findAll();
-
     }
 
     @Get('/:id')
