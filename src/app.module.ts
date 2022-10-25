@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AuthModule } from './auth/auth.module';
 import { CategoriesModule } from './Categories/categories.module';
 import { Categories } from './Categories/entities/categories.entities';
 import { Product } from './Product/entities/product.entities';
@@ -20,7 +21,8 @@ import { ProductModule } from './Product/product.module';
       synchronize: true
     }),
     ProductModule,
-    CategoriesModule
+    CategoriesModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
