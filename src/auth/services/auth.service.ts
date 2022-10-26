@@ -18,6 +18,22 @@ export class AuthService{
         throw new HttpException('User not found!', HttpStatus.NOT_FOUND);
 
         const match = await this.bcrypt.comparePassword(searchCustumer.password, password)
+
+        if(searchCustumer && match) {
+            const { password, ...result} = searchCustumer;
+            return result;
+        }
+        return null
+    }
+
+    async login(userLogin: any){
+
+        const payload = {username: userLogin.customer, sub: 'Game-Store'};
+
+        return {
+            custumer: userLogin.customer,
+            token: `Bearer ${this.jwtService.sign(payload)}`,
+        };
     }
 }
 
