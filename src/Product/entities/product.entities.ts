@@ -1,9 +1,11 @@
 import { IsNotEmpty, isNotEmpty } from "class-validator";
 import { Categories } from "src/Categories/entities/categories.entities";
+import { Custumer } from "src/customer/entities/customer.entity";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity({name: 'tb_product'})
 export class Product{
+    [x: string]: any;
 
     @PrimaryGeneratedColumn()
     id: number
@@ -27,6 +29,12 @@ export class Product{
         onDelete: 'CASCADE'
     }) 
     categories: Categories
+
+    @ManyToOne(() => Custumer, (custumer) => custumer.product, {
+        onDelete: "CASCADE"
+    })
+
+    custumer: Custumer
 
 
 
